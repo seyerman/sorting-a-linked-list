@@ -28,10 +28,10 @@ public class DoubleLinkedCourse {
 			while(changed) {
 				Student currentNode = first;
 				changed = false;
-				System.out.println("== NEW ITERATION ==");
+				//System.out.println("== NEW ITERATION A ==");
 				while(currentNode.getNext() != null) {
 					Student nextNode = currentNode.getNext();
-					System.out.println(currentNode+" ? "+nextNode);
+					//System.out.println(currentNode+" ? "+nextNode);
 					if(currentNode.compareTo(nextNode)>0) {
 						if(currentNode.getPrev()!=null) {
 							currentNode.getPrev().setNext(nextNode);
@@ -56,20 +56,33 @@ public class DoubleLinkedCourse {
 						currentNode = currentNode.getNext();
 					}
 				}
-				/*
+				
+				//System.out.println("== NEW ITERATION B ==");
 				while(currentNode.getPrev() != null) {
 					Student prevNode = currentNode.getPrev();
-					if(currentNode.compareTo(prevNode)>0) {
+					//System.out.println(currentNode+" ? "+prevNode);
+					if(currentNode.compareTo(prevNode)<0) {
+						if(currentNode.getNext()!=null) {
+							currentNode.getNext().setPrev(prevNode);
+						}
+						if(prevNode.getPrev()!=null) {
+							prevNode.getPrev().setNext(currentNode);
+						}
+						
 						currentNode.setPrev(prevNode.getPrev());
 						prevNode.setNext(currentNode.getNext());
 						currentNode.setNext(prevNode);
 						prevNode.setPrev(currentNode);
 						
+						if(prevNode==first) {
+							first = currentNode;
+						}
+						
 						changed = true;
 					}else{
 						currentNode = currentNode.getPrev();
-					}
-				}*/
+					}					
+				}
 			}
 		}
 	}
