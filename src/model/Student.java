@@ -54,6 +54,6 @@ public class Student implements Comparable<Student>{
 	}
 	
 	public String toString() {
-		return "["+name+","+code+","+grade+"]";
+		return "["+name+", "+code+", "+grade+"]";
 	}
 }

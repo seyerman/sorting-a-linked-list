@@ -24,9 +24,11 @@ public class DoubleLinkedList {
 	public String toString() {
 		String msg = "";
 		Student current = first;
+		String sep = "";
 		while(current!=null) {
-			msg += current;
+			msg += sep + current;
 			current = current.getNext();
+			sep = "\n";
 		}
 		return msg;
 	}
